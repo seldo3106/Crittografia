@@ -5,43 +5,202 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cifratura</title>
         <style>
-            #corpo{
+            :root {
+                --primary-color: #3498db;
+                --secondary-color: #2980b9;
+                --background-color: #f8f9fa;
+                --card-color: #ffffff;
+                --text-color: #333333;
+                --border-color: #e0e0e0;
+                --success-color: #2ecc71;
+                --warning-color: #e74c3c;
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                line-height: 1.6;
+            }
+            
+            #barra {
                 display: flex;
+                height: 80px;
+                align-items: center;
+                background-color: var(--primary-color);
+                padding: 0 20px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
-            .colonna{
-                width: 50%;
+            
+            #barra h1 {
+                margin: 0 20px 0 0;
+                color: white;
+                font-size: 1.5rem;
             }
-            input{
-                width: 500px;
+            
+            #barra a {
+                text-decoration: none;
+                color: white;
+                margin-right: 15px;
+                padding: 8px 12px;
+                border-radius: 4px;
+                transition: background-color 0.3s;
             }
-            textarea{
-                width: 500px;
-                height: 200px;
-                margin-bottom: 20px;
+            
+            #barra a:hover {
+                background-color: var(--secondary-color);
             }
-            p{
-                border-style: groove;
-                height: 200px;
-                width: 500px;
-                /*overflow-y: auto;
-                overflow-x: hidden;*/
-                overflow-wrap: break-word;
+            
+            #corpo {
+                display: flex;
+                padding: 20px;
+                gap: 20px;
             }
-            @media(max-width: 500px){
-                #corpo{
-                    display: block;
+            
+            .colonna {
+                flex: 1;
+                background-color: var(--card-color);
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            }
+            
+            h3 {
+                color: var(--primary-color);
+                margin-top: 0;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 10px;
+            }
+            
+            textarea {
+                width: 100%;
+                height: 150px;
+                margin-bottom: 15px;
+                padding: 10px;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+                resize: vertical;
+                font-family: inherit;
+            }
+            
+            input[type="text"] {
+                width: calc(100% - 22px);
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+            }
+            
+            button {
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                margin-right: 10px;
+            }
+            
+            button:hover {
+                background-color: var(--secondary-color);
+            }
+            
+            select {
+                padding: 8px;
+                border-radius: 4px;
+                border: 1px solid var(--border-color);
+                margin-right: 10px;
+            }
+            
+            #c2, #c4 {
+                border: 1px solid var(--border-color);
+                height: 150px;
+                overflow-y: auto;
+                padding: 10px;
+                border-radius: 4px;
+                background-color: #f8f8f8;
+                word-break: break-all;
+            }
+            
+            .input-row {
+                display: flex;
+                gap: 10px;
+                align-items: flex-start; /* Allinea in alto invece che al centro */
+            }
+
+            .input-row input {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+                height: 40px;
+                box-sizing: border-box;
+            }
+
+            .generate-btn {
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                height: 40px;
+                box-sizing: border-box;
+                white-space: nowrap;
+            }
+
+            .generate-btn:hover {
+                background-color: var(--secondary-color);
+            }
+            
+            .output-label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: var(--primary-color);
+            }
+            
+            @media (max-width: 768px) {
+                #corpo {
+                    flex-direction: column;
+                }
+                
+                #barra {
+                    flex-direction: column;
+                    height: auto;
+                    padding: 15px;
+                }
+                
+                #barra h1 {
+                    margin-bottom: 15px;
+                }
+                
+                #barra a {
+                    margin-bottom: 10px;
                 }
             }
         </style>
     </head>
     <body>
-        <h1>Cifratura stra sicura</h1>
+        <div id="barra">
+            <h1>Cifratura stra sicura</h1>
+            <a href="consigli.html"><p id="b0">Consigli per la sicurezza</p></a>
+            <a href="https://it.wikipedia.org/wiki/Cifrario_di_Vernam"><p id="b1">Metodo di crittografia</p></a>
+        </div>
         <div id="corpo">
             <div class="colonna">
                 <h3>Da codificare</h3>
                 <textarea type="text" id="c1" class="eccezione" placeholder="Inserisci un testo..."></textarea>
-                <input type="text" id="chiave1" placeholder="Inserisci la chiave...">
-                <br><br>
+                <div class="input-with-button">
+                    <div class="input-row">
+                        <input type="text" id="chiave1" placeholder="Inserisci la chiave...">
+                        <button onclick="genera()" class="generate-btn">Genera chiave</button>
+                    </div>
+                </div>
                 <div>
                     <button onclick="cifra()">Cifra</button>
                     <select id="v1">
@@ -53,10 +212,9 @@
                 <p id="c2"></p>
             </div>
             <div class="colonna">
-                <h3>Da codificare</h3>
+                <h3>Da decodificare</h3>
                 <textarea type="text" id="c3" class="eccezione" placeholder="Inserisci un testo cifrato..."></textarea>
                 <input type="text" id="chiave2" placeholder="Inserisci la chiave...">
-                <br><br>
                 <div>
                     <button onclick="decifra()">Decifra</button>
                     <select id="v2">
@@ -78,6 +236,10 @@
             let testoB = ConBin(testo);
             let chiaveB = ConBin(chiave);;
             let cifrato="",cifratoE="";
+
+            if(testo=="" || chiave==""){
+                window.alert("Aggiungi una chiave o un testo");
+            }
             
             //Allunga la chiave se corta
             while(chiaveB.length < testoB.length) {
@@ -112,6 +274,10 @@
             let chiaveB = ConBin(chiave);
             let cifratoB="",testo="",testoE="",testoB="";
 
+            
+            if(chiave=="" || cifrato==""){
+                window.alert("Aggiungi una chiave o un testo");
+            }
 
             //converte il testo cifrato in binario
             if(base == 0){
@@ -147,6 +313,15 @@
 
         }
 
+        function genera(){
+            let lunghezza = document.getElementById("c1").value.length;
+            let chiave = "";
+            for(i=0; i<lunghezza; i++){
+                chiave += String.fromCharCode(casuale(33,126));
+            }
+            document.getElementById("chiave1").value = chiave;
+        }
+
         function XOR(b1, b2) {
             return b1 == b2 ? "0" : "1";
         }
@@ -160,6 +335,10 @@
                 binario += tempi;    //aggiunge il numero binario al testo binario
             }
             return binario;
+        }
+
+        function casuale(min,max){
+            return Math.floor((Math.random()*(max - min + 1)) + min);
         }
     </script>
 </html>

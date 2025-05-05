@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Consigli per la cifratura sicura</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            
+            a {
+                display: inline-block;
+                margin-bottom: 20px;
+                text-decoration: none;
+                color: #2c3e50;
+                font-weight: bold;
+                padding: 8px 15px;
+                border-radius: 4px;
+                background-color: #ecf0f1;
+                transition: all 0.3s ease;
+            }
+            
+            a:hover {
+                background-color: #d6eaf8;
+                color: #2980b9;
+            }
+            
+            h1 {
+                color: #2c3e50;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 10px;
+                margin-bottom: 25px;
+            }
+            
+            .container {
+                background-color: white;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .tip {
+                background-color: #e8f4f8;
+                border-left: 4px solid #3498db;
+                padding: 15px;
+                margin: 20px 0;
+                border-radius: 0 4px 4px 0;
+            }
+            
+            .tip-title {
+                font-weight: bold;
+                color: #2980b9;
+                margin-bottom: 10px;
+            }
+            
+            @media (max-width: 600px) {
+                body {
+                    padding: 15px;
+                }
+                
+                .container {
+                    padding: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <a href="crittografia.html">← Torna alla cifratura</a>
+            <h1>Consigli per una cifratura sicura</h1>
+            
+            <div class="tip">
+                <div class="tip-title">Lunghezza della chiave</div>
+                <p>Per rendere più sicura la cifratura, usa una chiave lunga almeno quanto il testo (o anche più lunga). Se la chiave è più breve viene ripetuta, e se qualcuno scoprisse questo pattern potrebbe decifrare l'intero messaggio.</p>
+            </div>
+            
+            <div class="tip">
+                <div class="tip-title">Generazione casuale</div>
+                <p>Per massimizzare la sicurezza, genera sempre la chiave casualmente utilizzando l'apposito pulsante nell'applicazione di cifratura. Le chiavi generate manualmente tendono a essere meno sicure.</p>
+            </div>
+            
+            <div class="tip">
+                <div class="tip-title">Conservazione sicura</div>
+                <p>Ricorda che la sicurezza del cifrario di Vernam dipende interamente dalla segretezza della chiave. Conservala in un luogo sicuro e non condividerla attraverso gli stessi canali usati per il messaggio cifrato.</p>
+            </div>
+        </div>
+    </body>
+</html>
